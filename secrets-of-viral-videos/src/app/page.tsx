@@ -3,8 +3,12 @@
 import Image from 'next/image';
 import { useLangStore } from '../../lib/stores/langStore';
 import Container from '@/components/UI/Container';
+import { useState } from 'react';
+import Modal from '../components/Modal/Modal';
+
 export default function Home() {
   const { lang } = useLangStore();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <main>
       <Container>
@@ -19,8 +23,10 @@ export default function Home() {
               height={466}
               priority
               className="object-cover w-full h-full"
-            />
-          </div>
+                />
+              </div>
+              
+              
 
           <div className="absolute top-[84px] right-[-10px] text-[18px] flex flex-col gap-[15px]">
             <p className="ml-[110px] mb-[42px] w-[396px] font-light leading-[1.6] text-[#d1d1d1] text-left">
@@ -92,7 +98,7 @@ export default function Home() {
                     {lang.value === 'ua' ? '38 уроків' : '38 lessons'}
                   </li>
                 </ul>
-                <button className="font-manrope font-semibold mt-[160.5px] text-[16px] tracking-[0%] py-[17.5px] px-[115.5px] bg-white text-[rgba(12,1,23,1)] rounded-[50px]">
+                <button onClick={() => setIsModalOpen(true)} className="font-manrope font-semibold mt-[160.5px] text-[16px] tracking-[0%] py-[17.5px] px-[115.5px] bg-white text-[rgba(12,1,23,1)] rounded-[50px]">
                   {lang.value === 'ua' ? 'Купити' : 'Buy'}
                 </button>
               </div>
@@ -134,7 +140,7 @@ export default function Home() {
                       : 'COMMUNITY CHAT FOR CONTENT CREATORS'}
                   </li>
                 </ul>
-                <button className="font-manrope font-semibold mt-[35px] text-[16px] tracking-[0%] py-[17.5px] px-[115.5px] bg-[rgba(12,1,23,1)] text-white rounded-[50px]">
+                <button onClick={() => setIsModalOpen(true)} className="font-manrope font-semibold mt-[35px] text-[16px] tracking-[0%] py-[17.5px] px-[115.5px] bg-[rgba(12,1,23,1)] text-white rounded-[50px]">
                   {lang.value === 'ua' ? 'КУПИТИ' : 'BUY'}
                 </button>
               </div>
@@ -177,14 +183,15 @@ export default function Home() {
                       : 'Analysis of your page in video call format'}
                   </li>
                 </ul>
-                <button className="font-manrope font-semibold mt-[27px] text-[16px] tracking-[0%] py-[17.5px] px-[115.5px] bg-white text-[rgba(12,1,23,1)] rounded-[50px]">
+                <button onClick={() => setIsModalOpen(true)} className="font-manrope font-semibold mt-[27px] text-[16px] tracking-[0%] py-[17.5px] px-[115.5px] bg-white text-[rgba(12,1,23,1)] rounded-[50px]">
                   {lang.value === 'ua' ? 'КУПИТИ' : 'BUY'}
                 </button>
               </div>
             </li>
           </ul>
         </section>
-        </Container>
+      </Container>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </main>
   );
 }

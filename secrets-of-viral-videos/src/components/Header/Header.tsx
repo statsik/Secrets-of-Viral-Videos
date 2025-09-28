@@ -4,9 +4,12 @@ import Link from 'next/link';
 import SelectLang from '../SelectLang/SelectLang';
 import { useLangStore } from '../../../lib/stores/langStore';
 import Container from '../UI/Container';
+import { useState } from 'react';
+import Modal from '../Modal/Modal';
 
 export default function Header() {
   const { lang } = useLangStore();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <header className="mt-[40px]">
       <Container>
@@ -54,7 +57,7 @@ export default function Header() {
               <SelectLang />
             </div>
 
-            <button className="text-white text-[12px] rounded-full py-[10px] px-[31px] bg-gradient-to-tr from-[#90E8FF] via-[#9C9EFF] via-[#E3A1FF] to-[#E56F8C]">
+            <button onClick={() => setIsModalOpen(true)} className="text-white text-[12px] rounded-full py-[10px] px-[31px] bg-gradient-to-tr from-[#90E8FF] via-[#9C9EFF] via-[#E3A1FF] to-[#E56F8C]">
               {lang.value === 'ua'
                 ? 'Придбати зі знижкою'
                 : 'Buy with discount'}
@@ -62,6 +65,7 @@ export default function Header() {
           </div>
         </div>
       </Container>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </header>
   );
 }
