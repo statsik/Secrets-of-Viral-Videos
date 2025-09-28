@@ -3,18 +3,22 @@
 import Link from 'next/link';
 import SelectLang from '../SelectLang/SelectLang';
 import { useLangStore } from '../../../lib/stores/langStore';
+import Container from '../UI/Container';
 
 export default function Header() {
   const { lang } = useLangStore();
   return (
-    <header className="py-[10px]">
+    <header className="mt-[40px]">
+      <Container>
+
+      
         <div className="flex flex-wrap items-center justify-between">
           <Link
             className="uppercase font-[Sansation] font-semibold text-[18px]"
             href={'/'}
           >
             Aleko{' '}
-            <span className="bg-gradient-to-r from-[#5557E6] to-[#F59DBD] text-transparent bg-clip-text">
+            <span className="bg-gradient-to-r from-[#5557E6] to-[#F59DBD] text-transparent bg-clip-text font-[Sansation] font-bold text-[18px] leading-[100%] tracking-[0] uppercase">
               Sokurashvili
             </span>
           </Link>
@@ -57,6 +61,7 @@ export default function Header() {
             </button>
           </div>
         </div>
+      </Container>
     </header>
   );
 }
