@@ -1,14 +1,14 @@
 import React from 'react';
 import './globals.css';
-import clsx from 'clsx';
-import Container from '@/components/UI/Container';
 import Header from '@/components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import { Raleway, Manrope, Sansation } from 'next/font/google';
+import SendForm from '@/components/SendForm/SendForm';
+import { Toaster } from 'react-hot-toast';
 
 const sansation = Sansation({
   subsets: ['latin', 'cyrillic'],
-  weight: ['400','700'],
+  weight: ['400', '700'],
   variable: '--font-raleway',
 });
 const raleway = Raleway({
@@ -18,25 +18,28 @@ const raleway = Raleway({
 });
 const manrope = Manrope({
   subsets: ['latin'],
-  weight: ['400', '700'], 
+  weight: ['400', '700'],
   display: 'swap',
-  variable: '--font-manrope', 
+  variable: '--font-manrope',
 });
 
 export default function RootLayout({
   children,
-
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    
-    <html lang="en" className={`${manrope.variable} ${raleway.variable} ${sansation.variable} font-sans`}>
+    <html
+      lang="en"
+      className={`${manrope.variable} ${raleway.variable} ${sansation.variable} font-sans`}
+    >
       <body>
-          <Header />
-          {children}
-          <Footer />
+        <Toaster />
+        <Header />
+        {children}
+        <Footer />
+        <SendForm />
       </body>
     </html>
-  ); 
+  );
 }
