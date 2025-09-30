@@ -2,15 +2,10 @@ import React from 'react';
 import './globals.css';
 import Header from '@/components/Header/Header';
 import Footer from '../components/Footer/Footer';
-import { Raleway, Manrope, Sansation } from 'next/font/google';
+import { Raleway, Manrope } from 'next/font/google';
 import SendForm from '@/components/SendForm/SendForm';
 import { Toaster } from 'react-hot-toast';
 
-const sansation = Sansation({
-  subsets: ['latin', 'cyrillic'],
-  weight: ['400', '700'],
-  variable: '--font-sansation',
-});
 const raleway = Raleway({
   subsets: ['latin', 'cyrillic'],
   weight: ['300', '400', '500', '600', '700'],
@@ -31,7 +26,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${raleway.variable} ${sansation.variable} font-sans`}
+      className={`${manrope.variable} ${raleway.variable} font-sans`}
     >
       <body>
         <Toaster />
