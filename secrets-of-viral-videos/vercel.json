@@ -1,7 +1,13 @@
 {
   "version": 3,
   "framework": "nextjs",
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "installCommand": "npm install"
+  "builds": [
+    {
+      "src": "secrets-of-viral-videos/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "buildCommand": "cd secrets-of-viral-videos && npm run build",
+  "outputDirectory": "secrets-of-viral-videos/.next",
+  "installCommand": "cd secrets-of-viral-videos && npm install"
 }
