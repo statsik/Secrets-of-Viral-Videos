@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "secrets-of-viral-videos/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "buildCommand": "cd secrets-of-viral-videos && npm run build",
+  "installCommand": "cd secrets-of-viral-videos && npm install"
+}
