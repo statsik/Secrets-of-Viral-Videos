@@ -4,17 +4,14 @@ import Link from 'next/link';
 import SelectLang from '../SelectLang/SelectLang';
 import { useLangStore } from '../../../lib/stores/langStore';
 import Container from '../UI/Container';
-import { useState } from 'react';
-import Modal from '../Modal/Modal';
+import { useModalStore } from '../../../lib/stores/modalStore';
 
 export default function Header() {
   const { lang } = useLangStore();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { openModal } = useModalStore();
   return (
     <header className="mt-[40px]">
       <Container>
-
-      
         <div className="flex flex-wrap items-center justify-between">
           <Link
             className="uppercase font-[Sansation] font-semibold text-[18px]"
@@ -29,27 +26,27 @@ export default function Header() {
           <div className="flex flex-wrap gap-[57px] items-center">
             <ul className="flex gap-[28px] items-center">
               <li>
-                <Link href={'/structure'}>
+                <Link href={'/'}>
                   {lang.value === 'ua' ? 'Структура' : 'Structure'}
                 </Link>
               </li>
               <li>
-                <Link href={'/about'}>
+                <Link href={'/'}>
                   {lang.value === 'ua' ? 'Про мене' : 'About me'}
                 </Link>
               </li>
               <li>
-                <Link href={'/pluses'}>
+                <Link href={'/'}>
                   {lang.value === 'ua' ? 'Плюси' : 'Advantages'}
                 </Link>
               </li>
               <li>
-                <Link href={'/reviews'}>
+                <Link href={'/'}>
                   {lang.value === 'ua' ? 'Відгуки' : 'Reviews'}
                 </Link>
               </li>
               <li>
-                <Link href={'/faq'}>FAQ</Link>
+                <Link href={'/'}>FAQ</Link>
               </li>
             </ul>
 
@@ -57,7 +54,10 @@ export default function Header() {
               <SelectLang />
             </div>
 
-            <button onClick={() => setIsModalOpen(true)} className="text-white text-[12px] rounded-full py-[10px] px-[31px] bg-gradient-to-tr from-[#90E8FF] via-[#9C9EFF] via-[#E3A1FF] to-[#E56F8C]">
+            <button
+              onClick={openModal}
+              className="text-white text-[12px] rounded-full py-[10px] px-[31px] bg-gradient-to-tr from-[#90E8FF] via-[#9C9EFF] via-[#E3A1FF] to-[#E56F8C]"
+            >
               {lang.value === 'ua'
                 ? 'Придбати зі знижкою'
                 : 'Buy with discount'}
@@ -65,7 +65,6 @@ export default function Header() {
           </div>
         </div>
       </Container>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </header>
   );
 }
