@@ -1,6 +1,5 @@
 {
-  "version": 3,
-  "framework": "nextjs",
+  "version": 2,
   "builds": [
     {
       "src": "secrets-of-viral-videos/package.json",
@@ -8,6 +7,5 @@
     }
   ],
   "buildCommand": "cd secrets-of-viral-videos && npm run build",
-  "outputDirectory": "secrets-of-viral-videos/.next",
   "installCommand": "cd secrets-of-viral-videos && npm install"
 }
