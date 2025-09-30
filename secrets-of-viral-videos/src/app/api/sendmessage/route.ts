@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
       },
       {
         status: error.response?.status || 500,
-      }
+      },
     );
   }
 }

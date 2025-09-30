@@ -6,11 +6,19 @@ body {
   background: rgba(12, 1, 23, 1);
   color: rgba(255, 255, 255, 1);
   font-family: 'Raleway', 'sans-serif';
-} 
+}
 
 .footer-bg {
-  background-image: url('/images/unsplash.png'), url('/images/Ellipse.png'), url('/images/Rectangle.png');
+  background-image:
+    url('/images/unsplash.png'), url('/images/Ellipse.png'),
+    url('/images/Rectangle.png');
   background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: left top, center top, right top;
-  background-size: 513px auto, contain, contain; 
+  background-position:
+    left top,
+    center top,
+    right top;
+  background-size:
+    513px auto,
+    contain,
+    contain;
 }

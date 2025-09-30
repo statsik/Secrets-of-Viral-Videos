@@ -15,6 +15,6 @@ export const useLangStore = create<LangStore>()(
     }),
     {
       name: 'lang-storage',
-    }
-  )
+    },
+  ),
 );

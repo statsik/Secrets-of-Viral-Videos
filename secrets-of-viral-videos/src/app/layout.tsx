@@ -9,7 +9,7 @@ import { Toaster } from 'react-hot-toast';
 const sansation = Sansation({
   subsets: ['latin', 'cyrillic'],
   weight: ['400', '700'],
-  variable: '--font-sansation', 
+  variable: '--font-sansation',
 });
 const raleway = Raleway({
   subsets: ['latin', 'cyrillic'],

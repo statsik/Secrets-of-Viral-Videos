@@ -42,7 +42,7 @@ const Modal = ({ onClose, children }: ModalProps) => {
         {children}
       </div>
     </div>,
-    document.body
+    document.body,
   );
 };
 
